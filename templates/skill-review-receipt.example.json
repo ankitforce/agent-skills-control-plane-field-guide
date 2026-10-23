@@ -1,0 +1,31 @@
+{
+  "package": {
+    "source": "https://example.com/org/repository",
+    "revision": "0123456789abcdef",
+    "publisher": "Example publisher",
+    "owner": "Named internal owner",
+    "checksum": "sha256:replace-with-verified-package-digest",
+    "declared_contents": ["SKILL.md", "references/", "scripts/"]
+  },
+  "authority": {
+    "tool_allowlist": ["read_repository"],
+    "data_boundary": "Public source code only; no secrets or customer data.",
+    "action_tier": "read_only"
+  },
+  "evidence": {
+    "sandbox_result": "not_run",
+    "evaluator_version": "replace-with-evaluator-version",
+    "known_limitations": ["Example only. Do not treat as an approval."]
+  },
+  "approval": {
+    "approver": "Named human approver",
+    "approved_at": "2026-10-23T00:00:00Z",
+    "scope": "Example sandbox only",
+    "review_by": "2026-11-23"
+  },
+  "revocation": {
+    "owner": "Named internal owner",
+    "disable_path": "Disable the package in the approved runtime inventory.",
+    "inventory_method": "Search the approved runtime inventory by canonical source and revision."
+  }
+}

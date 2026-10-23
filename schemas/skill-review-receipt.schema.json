@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Skill Review Receipt",
+  "type": "object",
+  "required": ["package", "authority", "evidence", "approval", "revocation"],
+  "properties": {
+    "package": {
+      "type": "object",
+      "required": ["source", "revision", "publisher", "owner"],
+      "properties": {
+        "source": {"type": "string", "format": "uri"},
+        "revision": {"type": "string", "minLength": 7},
+        "publisher": {"type": "string", "minLength": 1},
+        "owner": {"type": "string", "minLength": 1},
+        "checksum": {"type": "string"},
+        "declared_contents": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "authority": {
+      "type": "object",
+      "required": ["tool_allowlist", "data_boundary", "action_tier"],
+      "properties": {
+        "tool_allowlist": {"type": "array", "items": {"type": "string"}},
+        "data_boundary": {"type": "string"},
+        "action_tier": {"enum": ["read_only", "reversible_write", "human_approved_irreversible"]}
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["sandbox_result", "evaluator_version", "known_limitations"],
+      "properties": {
+        "sandbox_result": {"enum": ["pass", "fail", "not_run"]},
+        "evaluator_version": {"type": "string"},
+        "known_limitations": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "approval": {
+      "type": "object",
+      "required": ["approver", "approved_at", "scope", "review_by"],
+      "properties": {
+        "approver": {"type": "string"},
+        "approved_at": {"type": "string", "format": "date-time"},
+        "scope": {"type": "string"},
+        "review_by": {"type": "string", "format": "date"}
+      },
+      "additionalProperties": false
+    },
+    "revocation": {
+      "type": "object",
+      "required": ["owner", "disable_path", "inventory_method"],
+      "properties": {
+        "owner": {"type": "string"},
+        "disable_path": {"type": "string"},
+        "inventory_method": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

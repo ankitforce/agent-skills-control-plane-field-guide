@@ -1,0 +1,21 @@
+{
+  "name": "agent-skills-control-plane-field-guide",
+  "version": "0.1.0",
+  "canonical_article_url": "TBD - replace after publication",
+  "public_repo_url": "TBD - replace after GitHub creation",
+  "entrypoints": [
+    "README.md",
+    "checklists/skill-approval-checklist.md",
+    "templates/skill-review-receipt.example.json"
+  ],
+  "safe_tasks": [
+    "create a review receipt from supplied evidence",
+    "validate a receipt",
+    "identify missing governance fields"
+  ],
+  "prohibited_tasks": [
+    "execute an imported skill",
+    "handle secrets",
+    "grant runtime permissions"
+  ]
+}
